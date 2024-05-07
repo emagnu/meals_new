@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import '../models/meal.dart';
 
 //  //   ///
-class MealScreen extends StatelessWidget {
+
+class MealsScreen extends StatelessWidget {
   final String title;
   final List<Meal> meals;
-
-  const MealScreen({super.key, required this.title, required this.meals});
+  const MealsScreen({super.key, required this.title, required this.meals});
 
   @override
   Widget build(BuildContext context) {
@@ -59,5 +59,3 @@ class MealScreen extends StatelessWidget {
     );
   }
 }
-
-        // for(final meal in meals) 
