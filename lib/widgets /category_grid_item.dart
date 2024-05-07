@@ -2,7 +2,7 @@
 //  Import LIBRARIES
 import 'package:flutter/material.dart';
 //  Import FILES
-import '../models /category.dart';
+import '../models/category.dart';
 //  //   ///
 
 class CategoryGridItem extends StatelessWidget {

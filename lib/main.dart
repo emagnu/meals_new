@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 //  Import FILES
-import 'screens /categories_screen.dart';
+import 'data/dummy_data.dart';
+import 'screens /meal_screen.dart';
 //  //   ///
 
 void main() {
@@ -27,7 +28,11 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.latoTextTheme(),
         useMaterial3: true,
       ),
-      home: const CategoriesScreen(),
+      // home: const CategoriesScreen(),
+      home: const MealScreen(
+        title: 'Some dummy category ...',
+        meals: dummyMeals, //[],
+      ),
     );
   }
 }
