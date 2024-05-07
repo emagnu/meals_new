@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 //  Import FILES
 import '../data/dummy_data.dart';
+import '../models/category.dart';
 import '../widgets /category_grid_item.dart';
 import 'meals_screen.dart';
 //  //   ///
@@ -11,12 +12,16 @@ import 'meals_screen.dart';
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});
 
-  void _selectedCategory(BuildContext context) {
+  void _selectedCategory(BuildContext context, Category category) {
+    final filteredMeals = dummyMeals
+        .where((element) => element.categories.contains(category.id))
+        .toList();
+
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (ctx) => const MealsScreen(
-          title: 'Some title',
-          meals: [],
+        builder: (ctx) => MealsScreen(
+          title: category.title, //'Some title',
+          meals: filteredMeals, //[],
         ),
       ),
     );
@@ -40,7 +45,7 @@ class CategoriesScreen extends StatelessWidget {
             .map((category) => CategoryGridItem(
                   category: category,
                   onSelectCategory: () {
-                    _selectedCategory(context);
+                    _selectedCategory(context, category);
                   },
                 ))
             .toList(),
@@ -49,29 +54,3 @@ class CategoriesScreen extends StatelessWidget {
     );
   }
 }
-
-// Old dummy card
-// Text('text item 1',
-//     style: TextStyle(fontSize: 20, color: Colors.amber)),
-// Text('text item 2',
-//     style: TextStyle(fontSize: 20, color: Colors.amber)),
-// Text('text item 3',
-//     style: TextStyle(fontSize: 20, color: Colors.amber)),
-// Text('text item 4',
-//     style: TextStyle(fontSize: 20, color: Colors.amber)),
-// Text('text item 5',
-//     style: TextStyle(fontSize: 20, color: Colors.amber)),
-// Text('text item 6',
-//     style: TextStyle(fontSize: 20, color: Colors.amber)),
-// Text('text item 7',
-//     style: TextStyle(fontSize: 20, color: Colors.amber)),
-// Text('text item 8',
-//     style: TextStyle(fontSize: 20, color: Colors.amber)),
-// Text('text item 9',
-//     style: TextStyle(fontSize: 20, color: Colors.amber)),
-// Text('text item 10',
-//     style: TextStyle(fontSize: 20, color: Colors.amber)),
-// Text('text item 11',
-//     style: TextStyle(fontSize: 20, color: Colors.amber)),
-// Text('text item 12',
-//     style: TextStyle(fontSize: 20, color: Colors.amber))

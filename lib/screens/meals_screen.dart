@@ -13,6 +13,7 @@ class MealsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('Byeeeeeee');
     Widget screenContent = Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -38,12 +39,18 @@ class MealsScreen extends StatelessWidget {
     );
 
     if (meals.isNotEmpty) {
+      debugPrint('Helloooooo');
+      debugPrint(meals.toString());
       screenContent = ListView.builder(
         itemCount: meals.length,
         itemBuilder: (BuildContext ctx, int index) {
-          Text(
-            meals[index].title,
-            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          const Text(
+            "HElloooooooo",
+            style: TextStyle(
+                fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+            // meals[index].title,
+            // style: const TextStyle(
+            //     fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
           );
           return null;
         },
