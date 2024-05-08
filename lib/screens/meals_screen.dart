@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 //  Import FILES
 import '../models/meal.dart';
+import '../widgets /meal_item.dart';
 
 //  //   ///
 
@@ -40,20 +41,10 @@ class MealsScreen extends StatelessWidget {
 
     if (meals.isNotEmpty) {
       debugPrint('Helloooooo');
-      debugPrint(meals.toString());
       screenContent = ListView.builder(
         itemCount: meals.length,
-        itemBuilder: (BuildContext ctx, int index) {
-          const Text(
-            "HElloooooooo",
-            style: TextStyle(
-                fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
-            // meals[index].title,
-            // style: const TextStyle(
-            //     fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
-          );
-          return null;
-        },
+        itemBuilder: (BuildContext ctx, int index) =>
+            MealItem(meal: meals[index]),
       );
     }
 
@@ -61,7 +52,6 @@ class MealsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      // body: Column(children: <Widget>[for (final meal in meals)Text(meal.title,style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),],),
       body: screenContent,
     );
   }
