@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 //  Import FILES
 import '../models/meal.dart';
+import '../widgets /main_drawer.dart';
 import 'categories_screen.dart';
 import 'meals_screen.dart';
 //  //   ///
@@ -65,6 +66,7 @@ class _TabsScreenState extends State<TabsScreen> {
       activePageTitle = 'Your favourite meals';
     }
     return Scaffold(
+      drawer: const MainDrawer(),
       appBar: AppBar(
         title: Text(activePageTitle), //('Dynamic ....'),
       ),
