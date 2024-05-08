@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 //  //   ///
 
 class MainDrawer extends StatelessWidget {
-  const MainDrawer({super.key});
+  final void Function(String identifier) onSelectScreen;
+
+  const MainDrawer({super.key, required this.onSelectScreen});
 
   @override
   Widget build(BuildContext context) {
@@ -53,11 +55,7 @@ class MainDrawer extends StatelessWidget {
                 ),
           ),
           onTap: () {
-            // Navigator.of(context).push(
-            //   MaterialPageRoute(
-            //     builder: (context) => const CategoriesScreen(),
-            //   ),
-            // );
+            onSelectScreen('meals');
           },
         ),
         ListTile(
@@ -70,11 +68,7 @@ class MainDrawer extends StatelessWidget {
                 ),
           ),
           onTap: () {
-            // Navigator.of(context).push(
-            //   MaterialPageRoute(
-            //     builder: (context) => const CategoriesScreen(),
-            //   ),
-            // );
+            onSelectScreen('filters');
           },
         ),
       ],

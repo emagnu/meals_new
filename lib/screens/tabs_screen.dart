@@ -50,6 +50,16 @@ class _TabsScreenState extends State<TabsScreen> {
     });
   }
 
+  void _setScreen(String identifier) async {
+    if (identifier == 'filters') {
+      setState(() {
+        _selectedPageIndex = 1;
+      });
+    } else {
+      Navigator.of(context).pop();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget activePage = CategoriesScreen(
@@ -66,7 +76,9 @@ class _TabsScreenState extends State<TabsScreen> {
       activePageTitle = 'Your favourite meals';
     }
     return Scaffold(
-      drawer: const MainDrawer(),
+      drawer: MainDrawer(
+        onSelectScreen: _setScreen,
+      ),
       appBar: AppBar(
         title: Text(activePageTitle), //('Dynamic ....'),
       ),
