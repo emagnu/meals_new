@@ -52,9 +52,9 @@ class _TabsScreenState extends State<TabsScreen> {
 
   void _setScreen(String identifier) async {
     if (identifier == 'filters') {
-      setState(() {
-        _selectedPageIndex = 1;
-      });
+      // setState(() {
+      //   _selectedPageIndex = 1;
+      // });
     } else {
       Navigator.of(context).pop();
     }
